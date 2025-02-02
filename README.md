@@ -115,9 +115,13 @@ For example:
 Ensure that each `.mid` file has a matching `.wav` file of the same piece.  
 
 ### Model Configuration
-### Model Configuration
 
 All training hyperparameters, file paths, and other settings are defined in the `config/` folder. Each `.yaml` file corresponds to different modules or training configurations (e.g., `synth.yaml`, `bend.yaml`).
+  ```bash
+    python3 bend_train.py \
+    python3 synth_train.py \
+
+  ```
 
 - **`bend_train.py`**: Trains the **Bend** module (to predict pitch bend envelopes).
 - **`synth_train.py`**: Trains the **Synthesis** module (to generate mel spectrogram, conditioned on pitch/bend).
