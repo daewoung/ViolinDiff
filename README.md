@@ -99,10 +99,10 @@ By default, it expects the following arguments:
 ## Training
 
 ### Data Preparation
-- **MIDI Files**: We recommend downloading violin MIDI files from [MUSC_violin](https://github.com/nctamer/MUSC_violin).  
-  This repository provides various violin pieces in MIDI format.  
+- **MIDI Files**: We recommend downloading violin MIDI files from [MUSC_violin](https://github.com/nctamer/MUSC_violin). This repository provides various violin pieces in MIDI format.  
 - **Audio Files**: You will need to obtain corresponding audio recordings separately, as they are not provided in the above repo.  
-- **Directory Structure**: Organize your data such that each composer (or dataset split) resides in a folder. For example:
+- **Directory Structure**: Organize your data such that each composer (or dataset split) resides in a folder. 
+For example:
 ```text
 /data/train/
 ├── Kayser/
@@ -112,3 +112,12 @@ By default, it expects the following arguments:
 │   ├── piece2.wav
 │   └── ...
 ```
+Ensure that each `.mid` file has a matching `.wav` file of the same piece.  
+
+### Model Configuration
+### Model Configuration
+
+All training hyperparameters, file paths, and other settings are defined in the `config/` folder. Each `.yaml` file corresponds to different modules or training configurations (e.g., `synth.yaml`, `bend.yaml`).
+
+- **`bend_train.py`**: Trains the **Bend** module (to predict pitch bend envelopes).
+- **`synth_train.py`**: Trains the **Synthesis** module (to generate mel spectrogram, conditioned on pitch/bend).
