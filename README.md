@@ -43,10 +43,10 @@ ViolinDiff is divided into two main modules:
    ```
 
 3. Install [PyTorch](https://pytorch.org/get-started/previous-versions) 
-  ```bash
-  conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.8 -c pytorch -c nvidia
-  ```
-3. Install other dependencies
-  ```bash
-  pip install -r requirements.txt
-  ```
+   ```bash
+   conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.8 -c pytorch -c nvidia
+   ```
+4. Install other dependencies
+   ```bash
+   pip install -r requirements.txt
+   ```
