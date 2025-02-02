@@ -139,11 +139,9 @@ If you use **ViolinDiff** in your research, please cite:
 }
 ```
 
-## References
+### References
 
-- **DDPM** (Denoising Diffusion Probabilistic Models)  
-[https://github.com/lucidrains/denoising-diffusion-pytorch](https://github.com/lucidrains/denoising-diffusion-pytorch)
+- [DDPM](https://github.com/lucidrains/denoising-diffusion-pytorch)
 
-- **MIDI-DDSP**  
-[https://github.com/magenta/midi-ddsp](https://github.com/magenta/midi-ddsp)
+- [MIDI-DDSP](https://github.com/magenta/midi-ddsp)
 
