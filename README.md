@@ -7,7 +7,7 @@ Official **PyTorch implementation** of  **"ViolinDiff: Enhancing Expressive Viol
 
 <table>
   <tr>
-    <td><img src="./static/model.png" alt="VioliDiff" width="400"/></td>
+    <td><img src="./static/model.png" alt="VioliDiff" width="800"/></td>
    </a></td>
   </tr>
 </table>
