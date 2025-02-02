@@ -67,3 +67,28 @@ Make sure you have [Git LFS](https://git-lfs.github.com/) installed:
    wget https://huggingface.co/dawokim/ViolinDiff/resolve/main/bend.pt
    wget https://huggingface.co/dawokim/ViolinDiff/resolve/main/synth.pt
    ```
+
+## Inference
+
+We provide a script called `inference.py` to generate violin audio (`.wav`) from a given MIDI file.  
+By default, it expects the following arguments:
+
+- `--synth_pth`: Path to the **Synth** checkpoint (default: `synth.pt`)
+- `--bend_pth`: Path to the **Bend** checkpoint (default: `bend.pt`)
+- `--bend_cfg`: CFG scale for the bend model (default: `3.0`)
+- `--synth_cfg`: CFG scale for the synth model (default: `1.25`)
+- `--midi_pth`: Path to the input MIDI file (default: `thais.mid`)
+- `--save_pth`: Path to save the output WAV file (default: `thais.wav`)
+- `--performer`: Performer ID (int), default: `0` (currently up to 21 performers supported)
+- `--device`: Device to run on (`cuda` or `cpu`), default: `cuda`
+### Example Usage
+
+  ```bash
+    python3 inference.py \
+    --synth_pth synth.pt \
+    --bend_pth bend.pt \
+    --midi_pth example.mid \
+    --save_pth example_out.wav \
+    --performer 13 \
+    --device cuda
+  ```
