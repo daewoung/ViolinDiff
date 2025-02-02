@@ -101,6 +101,14 @@ By default, it expects the following arguments:
 ### Data Preparation
 - **MIDI Files**: We recommend downloading violin MIDI files from [MUSC_violin](https://github.com/nctamer/MUSC_violin).  
   This repository provides various violin pieces in MIDI format.  
-- **Audio Files**: You will need to obtain corresponding audio recordings **separately**, as they are not provided in the above repo.  
+- **Audio Files**: You will need to obtain corresponding audio recordings separately, as they are not provided in the above repo.  
 - **Directory Structure**: Organize your data such that each composer (or dataset split) resides in a folder. For example:
-/data/train/ ├── Kayser/ │ ├── piece1.mid │ ├── piece1.wav │ ├── piece2.mid │ ├── piece2.wav │ └── ... ├── Bach/ │ ├── partita1.mid │ ├── partita1.wav │ └── ... ├── Mozart/ └── ...
+```text
+/data/train/
+├── Kayser/
+│   ├── piece1.mid
+│   ├── piece1.wav
+│   ├── piece2.mid
+│   ├── piece2.wav
+│   └── ...
+```
