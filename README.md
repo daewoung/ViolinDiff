@@ -118,10 +118,32 @@ Ensure that each `.mid` file has a matching `.wav` file of the same piece.
 
 All training hyperparameters, file paths, and other settings are defined in the `config/` folder. Each `.yaml` file corresponds to different modules or training configurations (e.g., `synth.yaml`, `bend.yaml`).
   ```bash
-    python3 bend_train.py \
-    python3 synth_train.py \
-
+    python3 bend_train.py
+    python3 synth_train.py
   ```
 
 - **`bend_train.py`**: Trains the **Bend** module (to predict pitch bend envelopes).
 - **`synth_train.py`**: Trains the **Synthesis** module (to generate mel spectrogram, conditioned on pitch/bend).
+
+
+## Citation
+
+If you use **ViolinDiff** in your research, please cite:
+
+```bibtex
+@article{kim2024violindiff,
+  title={ViolinDiff: Enhancing Expressive Violin Synthesis with Pitch Bend Conditioning},
+  author={Kim, Daewoong and Dong, Hao-Wen and Jeong, Dasaem},
+  journal={arXiv preprint arXiv:2409.12477},
+  year={2024}
+}
+```
+
+## References
+
+- **DDPM** (Denoising Diffusion Probabilistic Models)  
+[https://github.com/lucidrains/denoising-diffusion-pytorch](https://github.com/lucidrains/denoising-diffusion-pytorch)
+
+- **MIDI-DDSP**  
+[https://github.com/magenta/midi-ddsp](https://github.com/magenta/midi-ddsp)
+
