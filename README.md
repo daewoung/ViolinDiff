@@ -68,6 +68,7 @@ Make sure you have [Git LFS](https://git-lfs.github.com/) installed:
    wget https://huggingface.co/dawokim/ViolinDiff/resolve/main/synth.pt
    ```
 
+
 ## Inference
 
 We provide a script called `inference.py` to generate violin audio (`.wav`) from a given MIDI file.  
@@ -93,3 +94,13 @@ By default, it expects the following arguments:
 - `--save_pth`: Path to save the output WAV file (default: `thais.wav`)
 - `--performer`: Performer ID (int), default: `0` (currently up to 21 performers supported)
 - `--device`: Device to run on (`cuda` or `cpu`), default: `cuda`
+
+
+## Training
+
+### Data Preparation
+- **MIDI Files**: We recommend downloading violin MIDI files from [MUSC_violin](https://github.com/nctamer/MUSC_violin).  
+  This repository provides various violin pieces in MIDI format.  
+- **Audio Files**: You will need to obtain corresponding audio recordings **separately**, as they are not provided in the above repo.  
+- **Directory Structure**: Organize your data such that each composer (or dataset split) resides in a folder. For example:
+/data/train/ ├── Kayser/ │ ├── piece1.mid │ ├── piece1.wav │ ├── piece2.mid │ ├── piece2.wav │ └── ... ├── Bach/ │ ├── partita1.mid │ ├── partita1.wav │ └── ... ├── Mozart/ └── ...
