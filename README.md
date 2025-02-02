@@ -50,3 +50,15 @@ ViolinDiff is divided into two main modules:
    ```bash
    pip install -r requirements.txt
    ```
+
+### Download Pre-trained Models
+Pretrained checkpoints (`bend.pt`, `synth.pt`) are available on **Hugging Face**:
+- **Repo**: [dawokim/ViolinDiff](https://huggingface.co/dawokim/ViolinDiff)
+
+### 1) Using Git + Git LFS
+Make sure you have [Git LFS](https://git-lfs.github.com/) installed:
+
+   ```bash
+   git lfs install
+   git clone https://huggingface.co/dawokim/ViolinDiff
+   ```
