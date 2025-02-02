@@ -52,8 +52,7 @@ ViolinDiff is divided into two main modules:
    ```
 
 ### Download Pre-trained Models
-Pretrained checkpoints (`bend.pt`, `synth.pt`) are available on **Hugging Face**:
-- **Repo**: [dawokim/ViolinDiff](https://huggingface.co/dawokim/ViolinDiff)
+Pretrained checkpoints (`bend.pt`, `synth.pt`) are available on **Hugging Face**:[dawokim/ViolinDiff](https://huggingface.co/dawokim/ViolinDiff)
 
 ### 1) Using Git + Git LFS
 Make sure you have [Git LFS](https://git-lfs.github.com/) installed:
@@ -63,7 +62,7 @@ Make sure you have [Git LFS](https://git-lfs.github.com/) installed:
    git clone https://huggingface.co/dawokim/ViolinDiff
    ```
 
-### 1) Using wget
+### 2) Using wget
    ```bash
    wget https://huggingface.co/dawokim/ViolinDiff/resolve/main/bend.pt
    wget https://huggingface.co/dawokim/ViolinDiff/resolve/main/synth.pt
