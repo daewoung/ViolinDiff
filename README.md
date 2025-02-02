@@ -73,14 +73,6 @@ Make sure you have [Git LFS](https://git-lfs.github.com/) installed:
 We provide a script called `inference.py` to generate violin audio (`.wav`) from a given MIDI file.  
 By default, it expects the following arguments:
 
-- `--synth_pth`: Path to the **Synth** checkpoint (default: `synth.pt`)
-- `--bend_pth`: Path to the **Bend** checkpoint (default: `bend.pt`)
-- `--bend_cfg`: CFG scale for the bend model (default: `3.0`)
-- `--synth_cfg`: CFG scale for the synth model (default: `1.25`)
-- `--midi_pth`: Path to the input MIDI file (default: `thais.mid`)
-- `--save_pth`: Path to save the output WAV file (default: `thais.wav`)
-- `--performer`: Performer ID (int), default: `0` (currently up to 21 performers supported)
-- `--device`: Device to run on (`cuda` or `cpu`), default: `cuda`
 ### Example Usage
 
   ```bash
@@ -92,3 +84,12 @@ By default, it expects the following arguments:
     --performer 13 \
     --device cuda
   ```
+
+- `--synth_pth`: Path to the **Synth** checkpoint (default: `synth.pt`)
+- `--bend_pth`: Path to the **Bend** checkpoint (default: `bend.pt`)
+- `--bend_cfg`: CFG scale for the bend model (default: `3.0`)
+- `--synth_cfg`: CFG scale for the synth model (default: `1.25`)
+- `--midi_pth`: Path to the input MIDI file (default: `thais.mid`)
+- `--save_pth`: Path to save the output WAV file (default: `thais.wav`)
+- `--performer`: Performer ID (int), default: `0` (currently up to 21 performers supported)
+- `--device`: Device to run on (`cuda` or `cpu`), default: `cuda`
