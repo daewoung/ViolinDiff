@@ -26,6 +26,16 @@ ViolinDiff is divided into two main modules:
 
 2. **Synth (Synthesis) Module** : Converts pitch and bend information, along with other performance controls, into the final violin audio signal.  
 
+## Running on Google Colab
+
+If you prefer not to install everything locally, you can **run ViolinDiff directly in Google Colab**:
+
+- [**ViolinDiff on Colab**](https://colab.research.google.com/drive/12CpNd3gjGVGJYaALrwYJdvrg7hFOHMy4?usp=sharing)
+
+Just open the link, make sure to **enable GPU** (`Runtime` → `Change runtime type` → `Hardware accelerator: GPU`), and execute the provided cells in order. This will:
+
+
+
 ## Getting Started
 
 ### Installation
