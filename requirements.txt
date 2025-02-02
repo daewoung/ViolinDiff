@@ -1,0 +1,13 @@
+torch
+torchaudio
+tensorflow
+numpy
+math
+einops
+pretty_midi
+hydra
+wandb
+einops
+matplotlib
+tqdm
+hydra-core

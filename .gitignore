@@ -1,0 +1,5 @@
+.pyc
+*.pt
+*.wav
+*.mid
+*.ipynb

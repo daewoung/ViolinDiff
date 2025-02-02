@@ -1,0 +1,50 @@
+seed : 42
+
+# hydra:
+#   run:
+#     dir: 'output/${now:%Y-%m-%d}/${now:%H-%M-%S}'
+
+defaults:
+  - defaults
+
+vocoder : "soundstream" # diffwave
+
+
+encoder:
+  dim: 256 
+  fft_out : 1024
+  num_heads: 4 
+  num_layers: 6
+  dropout: 0.1
+  pitch_num: ${datasets.pitch_label_num}
+  pre_norm: True
+
+wavenet:
+  res_ch: 256 #320
+  cond_dim: ${encoder.dim}
+  n_layers: 20 #30 #20
+  dilation: 1
+  use_Film: True # it means performer data used
+
+diff:
+  beta_schedule : 'linear'
+  timesteps : 200
+  objective : 'pred_noise'
+  loss_fn : 'l2'
+  self_condition : False #True
+  cfg_dropout : 0.9
+  use_enc_mel_train : True
+  bp_res : 0.05
+
+train:
+  wandb_log : True
+  rum_entity : "VIOLIN_DIFF4" 
+  run_name : "test"
+  train_ratio : 0.97
+  train_batch_size: 128
+  eval_batch_size: 128
+  num_epoch : 40000
+  save_epoch : 2000 #10000 
+  infer_epoch : 2000 #10000
+  lr : 1e-4
+  fp_16 : True

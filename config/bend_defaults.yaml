@@ -1,0 +1,21 @@
+#@package _global_
+
+mel_soundstream:
+  sample_rate : 16000
+  n_fft : 1024
+  win_length : 640
+  hop_length : 320
+  f_min : 0.0
+  f_max : 8000
+  n_mels : 128
+  clip_value_min : 1e-5
+  clip_value_max : 1e8 #1e8
+  mel_len : 512
+
+datasets:  
+  midi_pth : '/home/daewoong/userdata/maler5_violindiff_backup/ViolinDiff/data/train'
+  valid_pth : '/home/daewoong/userdata/maler5_violindiff_backup/ViolinDiff/data/train'
+  pitch_label_num : 54
+  segment_size : 10.24 #10.24
+  on_memory : True
+  audio_norm : False
