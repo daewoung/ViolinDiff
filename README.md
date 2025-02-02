@@ -32,8 +32,7 @@ If you prefer not to install everything locally, you can **run ViolinDiff direct
 
 - [**ViolinDiff on Colab**](https://colab.research.google.com/drive/12CpNd3gjGVGJYaALrwYJdvrg7hFOHMy4?usp=sharing)
 
-Just open the link, make sure to **enable GPU** (`Runtime` → `Change runtime type` → `Hardware accelerator: GPU`), and execute the provided cells in order. This will:
-
+Just open the link, make sure to **enable GPU** (`Runtime` → `Change runtime type` → `Hardware accelerator: GPU`), and execute the provided cells in order.
 
 
 ## Getting Started
