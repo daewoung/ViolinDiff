@@ -12,12 +12,6 @@ from model.bends.model import get_model
 
 @hydra.main(config_path='config/', config_name='bend')
 def main(cfg : DictConfig):
-  import sys
-  print(sys.executable)
-  print(sys.version)
-  from pathlib import Path
-  print("Notebook working dir =", Path.cwd())
-
   seed = cfg.seed
   seeding(seed)
 

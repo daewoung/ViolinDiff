@@ -240,9 +240,6 @@ class GaussianDiffusion1D(nn.Module):
     
     if cfg_scale is not None:
         model_output = self.model.forward_with_cond(x, t, cond, x_self_cond, cfg_scale)
-    # else:
-    #     model_output = self.model(x, t, cond, x_self_cond, cfg_dropout = 1)
-    # print(mask.shape, model_output.shape)
     model_output = torch.where(mask != 0, model_output, torch.zeros_like(model_output))
     maybe_clip = partial(torch.clamp, min = -1., max = 1.) if clip_x_start else identity
 
@@ -293,26 +290,20 @@ class GaussianDiffusion1D(nn.Module):
     device = self.betas.device
 
     img = torch.randn((num_batches, self.channels, self.seq_length), device=device)
-    print(mask.shape, img.shape)
     img = torch.where(mask != 0, img, torch.zeros_like(img))
     
     x_start = None
     for t in tqdm(reversed(range(0, self.num_timesteps)), desc = 'sampling loop time step', total = self.num_timesteps):
         self_cond = x_start if self.self_condition else None
         img, x_start = self.p_sample(img, t, cond, self_cond, cfg_scale, mask = mask)
-    # if self.vocoder_name == 'soundstream':
-    #     img = self.get_scaler.reverse(img)
-    # elif self.vocoder_name == 'diffwave':
-    #     img = self.get_scaler.reverse_0_1(img)
+
     return img
 
   @torch.no_grad()
   def p_sample_loop2(self, cond, channel, seq_leng, cfg_scale =None, mask = None):
-    print(channel, seq_leng)
     device = self.betas.device
 
     img = torch.randn((1, channel, seq_leng), device=device)
-    print(mask.shape, img.shape)
     img = torch.where(mask != 0, img, torch.zeros_like(img))
     
     x_start = None
@@ -375,7 +366,6 @@ class GaussianDiffusion1D(nn.Module):
         # blended.clamp_(-1., 1.)
         interpolated[index-1, :, -overlap_seq:] = blended
         interpolated[index, :, :overlap_seq] = blended
-    # print(torch.max(interpolated), torch.min(interpolated))
     interpolated.clamp_(-1., 1.)
     return interpolated
 

@@ -62,17 +62,7 @@ def get_vibrato(midi_pitch, f0, target_len = 1000, vibrato_rate_min = 3, vibrato
     # nan을 0으로 대체
     if np.isnan(vibrato_extend):
         vibrato_extend = 0
-    # if not (vibrato_rate_min <= vibrato_rate <= vibrato_rate_max):
-    #     print(f"Vibrato rate {vibrato_rate} is outside the range {vibrato_rate_min}-{vibrato_rate_max}")
-    # if each_note_len <= min_note_length:
-    #     print(f"Note length {each_note_len} is not greater than minimum note length {min_note_length}")
-    # if vibrato_rate <= (1. / (each_note_len * sampling_interval)):
-    #     print(f"Vibrato rate {vibrato_rate} is not greater than one cycle length {1. / (each_note_len * sampling_interval)}")
 
-    # print(vibrato_rate)
-    # # 진동수가 3-9Hz 범위에 있는지 확인
-    # print(vibrato_rate_min, vibrato_rate_max)
-    # print(vibrato_rate >= vibrato_rate_min)
     vibrato_mask = (vibrato_rate >= vibrato_rate_min) & (vibrato_rate <= vibrato_rate_max)
 
     # 노트 길이가 최소 길이보다 큰지 확인
@@ -89,7 +79,6 @@ def get_vibrato(midi_pitch, f0, target_len = 1000, vibrato_rate_min = 3, vibrato
     vibrato_rate, vibrato_extend
     if vibrato_extend < 0:
       print(vibrato_extend)
-    # print(vibrato_rate, vibrato_extend)
     final_vibrato = vibrato_extend * 10
     return final_vibrato, s_vibrato, pad_pitch_deviation
 

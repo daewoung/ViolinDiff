@@ -39,16 +39,16 @@ def main(args, synth_cfg, bend_cfg):
   
   synth_model = load_checkpoint(
       synth_model,
-      "/home/daewoong/userdata/maler5_violindiff_backup/ViolinDiff/synth_40000_280000.pt",
+      args.synth_pth,
       args.device
     )
   bends_model = load_checkpoint(
       bends_model,
-      "/home/daewoong/userdata/maler5_violindiff_backup/ViolinDiff/bend_16000_112000.pt",
+      args.bend_pth,
       args.device
   )
   
-  performer_idx = torch.tensor([13])
+  performer_idx = torch.tensor([args.performer])
   overlap_seq_len = 32 
   
   
@@ -58,13 +58,13 @@ def main(args, synth_cfg, bend_cfg):
   performer = repeat(performer_idx, '1 -> b', b=pitch_data.shape[0])
   
   condition = [pitch_data.to('cuda'), onset_data.to('cuda'), bend_data.to('cuda'), velocity.to('cuda'), performer.to('cuda'), offset.to('cuda')]
-  pred_bend, concat_bend = bends_model.long_sampling(condition, overlap_seq_len, cfg_scale=3.0, mask= pitch_data.to('cuda'))
+  pred_bend, concat_bend = bends_model.long_sampling(condition, overlap_seq_len, cfg_scale=args.bend_cfg, mask= pitch_data.to('cuda'))
   
   pitch_data, onset_data, pred_bend_data, velocity, offset, pitch_dict, _  = long_midi_processor(synth_mel_config, args.midi_pth, overlap_seq_len, pred_bend = concat_bend.detach().cpu(), return_gt_bend = False)
   performer = repeat(performer_idx, '1 -> b', b=pitch_data.shape[0])
 
   condition = [pitch_data.to('cuda'), onset_data.to('cuda'), pred_bend_data.to('cuda'), velocity.to('cuda'), performer.to('cuda'), offset.to('cuda')]
-  pred_mel, concat_pred_mel = synth_model.long_sampling(condition, overlap_seq_len, 1.25)
+  pred_mel, concat_pred_mel = synth_model.long_sampling(condition, overlap_seq_len, args.synth_cfg)
 
   inverter = get_mel_inverse_converter()
   pred_audio = mel_to_wav_soundstream(concat_pred_mel.unsqueeze(0), inverter)
@@ -74,10 +74,13 @@ def main(args, synth_cfg, bend_cfg):
 
 if __name__ == "__main__":
   paser = argparse.ArgumentParser()
-  paser.add_argument('--synth_pth', type=str, default='/home/daewoong/userdata/maler5_violindiff_backup/ViolinDiffusionno_norm.pt')
-  paser.add_argument('--bend_pth', type=str, default='/home/daewoong/userdata/maler5_violindiff_backup/ViolinDiffusionno_norm.pt') # norm
-  paser.add_argument('--midi_pth', type=str, default='/home/daewoong/userdata/maler5_violindiff_backup/ViolinDiff/prelude.mid')
-  paser.add_argument('--save_pth', type=str, default='test4.wav')
+  paser.add_argument('--synth_pth', type=str, default='synth.pt')
+  paser.add_argument('--bend_pth', type=str, default='bend.pt') # norm
+  paser.add_argument('--bend_cfg', type=float, default=3.0) # norm
+  paser.add_argument('--synth_cfg', type=float, default=1.25) # norm
+
+  paser.add_argument('--midi_pth', type=str, default='thais.mid')
+  paser.add_argument('--save_pth', type=str, default='thais.wav')
   paser.add_argument('--performer', type=int, default=0)
   paser.add_argument('--device', type=str, default='cuda')
   args = paser.parse_args()

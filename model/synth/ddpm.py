@@ -616,8 +616,7 @@ class GaussianDiffusion1D(nn.Module):
     
   @torch.no_grad()
   def single_forward_step(self, x, t):
-    # 노이즈를 추가하는 단일 forward 스텝 (diffusion 과정처럼)
-    # print('hey', t)
+
     times = torch.full((1,), t, device = x.device, dtype = torch.long)
     
     return self.q_sample(x, times)
@@ -625,8 +624,6 @@ class GaussianDiffusion1D(nn.Module):
   
   @torch.no_grad()
   def single_reverse_step(self, x, t, cond, cfg_scale, self_cond):
-    # 기존의 reverse diffusion 스텝
-    # print('hey2', t)
 
     batched_times = torch.full((1,), t, device=x.device, dtype=torch.long)
     preds = self.model_predictions(x, batched_times, cond, self_cond, cfg_scale=cfg_scale)
@@ -667,13 +664,10 @@ class GaussianDiffusion1D(nn.Module):
         total_mel = torch.cat([total_mel, known_part[:, :, total_mel_len//2:]], dim=-1)
     
     img = total_mel
-    # print('this is me')
-    # print(torch.max(img), torch.min(img))
+
     if self.vocoder_name == 'soundstream':
         img = self.get_scaler.reverse(img) #+ 1e-7
     elif self.vocoder_name == 'diffwave':
         img = self.get_scaler.reverse_0_1(img)
-    # print(self.get_scaler.max, self.get_scaler.min)
-    # concat_out = self.trasitions(img, overlap_len)
-    # print(torch.max(concat_out), torch.min(concat_out))
+
     return img

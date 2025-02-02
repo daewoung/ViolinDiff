@@ -27,7 +27,6 @@ class ViolinDataset():
     self.on_memory = on_memory
 
     self.sr = sample_rate
-    print(midi_pth)
     self.midi_pth, self.audio_pth, self.perform = get_file_pth(midi_pth, composers)
     assert len(self.midi_pth) == len(self.audio_pth), 'Number of midi and audio files should be same'
 

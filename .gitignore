@@ -1,5 +1,6 @@
-.pyc
 *.pt
 *.wav
 *.mid
 *.ipynb
+*.pyc
+__pycache__/

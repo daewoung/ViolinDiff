@@ -30,9 +30,8 @@ def get_note_acc_feature(gt_bend_note, pred_bend_note):
   pred_min = []
   
   
-  for gt_bend, pred_bend in zip(gt_bend_note, pred_bend_note): # batch 에서 하나씩
-    # print(gt_bend, pred_bend)
-    # break
+  for gt_bend, pred_bend in zip(gt_bend_note, pred_bend_note):
+
     g_mean = gt_bend.mean()
     
    

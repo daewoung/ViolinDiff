@@ -1,13 +1,11 @@
-torch
-torchaudio
-tensorflow
-numpy
-math
+tensorflow-hub==0.16.1
+tensorflow==2.14.0
 einops
 pretty_midi
-hydra
 wandb
 einops
 matplotlib
 tqdm
 hydra-core
+scipy==1.11.2
+numpy==1.24

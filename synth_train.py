@@ -14,12 +14,6 @@ from model.module.wav2mel import MelConverter
 
 @hydra.main(config_path='config/', config_name='synth')
 def main(cfg : DictConfig):
-  import sys
-  print(sys.executable)
-  print(sys.version)
-  from pathlib import Path
-  print("Notebook working dir =", Path.cwd())
-
   seed = cfg.seed
   seeding(seed)
   gpus = tf.config.experimental.list_physical_devices('GPU')
