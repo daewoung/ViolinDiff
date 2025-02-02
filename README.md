@@ -1,8 +1,9 @@
 # ViolinDiff
 This model is provided for non-commercial, research use only.
 
-Official **PyTorch implementation** of  **"ViolinDiff: Enhancing Expressive Violin Synthesis with Pitch Bend Conditioning"**
+Official **PyTorch implementation** of  **"ViolinDiff: Enhancing Expressive Violin Synthesis with Pitch Bend Conditioning"**.
 **Keywords**: Violin Synthesis, Neural Audio Synthesis, Pitch Bend Modeling, Expressive Performance, Diffusion Models
+This work has been accepted at **ICASSP 2025**.
 
 
 
@@ -21,11 +22,9 @@ Official **PyTorch implementation** of  **"ViolinDiff: Enhancing Expressive Viol
 This repository provides the official PyTorch codebase for **ViolinDiff**, a diffusion-based model that focuses on generating expressive violin performances via **pitch bend modeling**. 
 
 ViolinDiff is divided into two main modules:
-1. **Bend Module**  
-   - Predict the **pitch bend roll** from MIDI.
+1. **Bend Module** : Predict the **pitch bend roll** from MIDI.
 
-2. **Synth (Synthesis) Module**  
-   - Converts pitch and bend information, along with other performance controls, into the final violin audio signal.  
+2. **Synth (Synthesis) Module** : Converts pitch and bend information, along with other performance controls, into the final violin audio signal.  
 
 ## Getting Started
 
