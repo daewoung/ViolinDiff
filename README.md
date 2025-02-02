@@ -62,3 +62,9 @@ Make sure you have [Git LFS](https://git-lfs.github.com/) installed:
    git lfs install
    git clone https://huggingface.co/dawokim/ViolinDiff
    ```
+
+### 1) Using wget
+   ```bash
+   wget https://huggingface.co/dawokim/ViolinDiff/resolve/main/bend.pt
+   wget https://huggingface.co/dawokim/ViolinDiff/resolve/main/synth.pt
+   ```
